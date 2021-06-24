@@ -5,7 +5,7 @@ const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 require('dotenv').config()
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 
