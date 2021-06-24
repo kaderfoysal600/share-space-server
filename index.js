@@ -69,6 +69,7 @@ client.connect(err => {
             })
     });
 
+
     app.get('/users/:name', (req, res)=>{
         eventCollection.find({name: req.params.name})
         .toArray((err, items)=>{
@@ -83,6 +84,13 @@ client.connect(err => {
         .then(result => 
           res.send(result.insertedCount>0)
           )
+      })
+      app.get('/bookingList',(req, res) => {
+        // console.log(req.query.email);
+        checkoutCollection.find({email:req.query.email})
+        .toArray((err , documents) => {
+          res.send(documents)
+        })
       })
 
       app.get("/isAdmin", (req,res) =>{
